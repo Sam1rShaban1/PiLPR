@@ -191,7 +191,7 @@ def test_ncnn(model_dir, writer):
     print(f"\n🚀 Testing {model_name} (NCNN)...")
     net = ncnn.Net()
     net.load_param(f"{model_dir}/model.ncnn.param")
-    net.load_model(f"{model_dir}/model.ncnn,bin")
+    net.load_model(f"{model_dir}/model.ncnn.bin")
 
     mat_in = ncnn.Mat.from_pixels_resize(
         image,
