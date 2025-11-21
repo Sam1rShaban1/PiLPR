@@ -130,6 +130,5 @@ The following statistics represent an average across three Raspberry Pi 4 Model 
 ├── pruned_int8.ncnn/       # NCNN Model assets
 │   ├── model.ncnn.param
 │   ├── model.ncnn.bin
-│   └── metadata.yaml
 └── README.md
 ```
