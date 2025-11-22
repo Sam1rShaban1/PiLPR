@@ -18,7 +18,7 @@ The application uses a **Producer-Consumer** pattern distributed across three da
     *   Polls the inference queue.
     *   **Skip Logic:** Processes only every *N*th frame (configurable) to prevent CPU saturation.
     *   **Backend:** Uses Ultralytics YOLOv8 with NCNN (Vulkan/CPU optimized).
-    *   **Resizing:** Downscales input to 320x320 for detection speed, but maps coordinates back to the source resolution (2028x1520) for high-quality cropping.
+    *   **Resizing:** Downscales input to 416x416 for detection speed, but maps coordinates back to the source resolution (2028x1520) for high-quality cropping.
 
 3.  **OCR Thread (Consumer 2):**
     *   triggered only when a bounding box is detected.
@@ -76,7 +76,7 @@ To achieve optimal performance on the Raspberry Pi 4, the model underwent a two-
 *   **Camera:** Raspberry Pi HQ Camera (Sony IMX477).
 *   **Storage:** Class 10 / UHS-I MicroSD (High random I/O performance recommended).
 *   **Cooling:** Active cooling (Fan) is mandatory. NCNN inference utilizes NEON vector instructions which generate significant heat (approx. 75°C peak).
-*   
+  
 ## Requirements
 
 ### System Dependencies
@@ -103,7 +103,7 @@ pip install ultralytics opencv-python-headless pytesseract flask psutil numpy nc
     ```
 
 2.  **Model Setup:**
-    Ensure your NCNN model folder (containing `model.ncnn.bin`, `model.ncnn.param``) is placed in the root directory. Update `MODEL_PATH` in `inference.py` if named differently.
+    Ensure your NCNN model folder (containing `model.ncnn.bin`, `model.ncnn.param`) is placed in the root directory. Update `MODEL_PATH` in `inference.py` if named differently.
 
 3.  **Run the Inference System:**
     ```bash
